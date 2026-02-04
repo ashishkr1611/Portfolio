@@ -15,21 +15,21 @@ const Sidebar = () => {
             {/* Mobile Toggle */}
             <motion.button
                 whileTap={{ scale: 0.95 }}
-                className="lg:hidden absolute top-6 right-6 text-white/50 p-2 rounded-xl bg-white/5 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                className="lg:hidden absolute top-4 right-4 text-white/40 p-2.5 rounded-2xl bg-white/5 border border-white/5 hover:border-gold-400/30 transition-all duration-300"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
             </motion.button>
 
             {/* Profile Section */}
-            <div className="flex flex-col items-center w-full">
+            <div className={`flex items-center w-full transition-all duration-500 ${isOpen ? 'flex-col lg:flex-col mb-10' : 'flex-row lg:flex-col lg:mb-10 text-left lg:text-center'}`}>
                 {/* Avatar Surround */}
-                <div className="relative mb-8 group">
+                <div className={`relative group transition-all duration-500 ${isOpen ? 'mb-8' : 'mr-6 lg:mr-0 lg:mb-8'}`}>
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="w-36 h-36 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative z-10 group-hover:rotate-1 transition-transform duration-500"
+                        className="w-24 h-24 lg:w-36 lg:h-36 rounded-[1.8rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative z-10 group-hover:rotate-1 transition-transform duration-500"
                     >
                         <img
                             src="/my-avatar.png"
@@ -37,29 +37,28 @@ const Sidebar = () => {
                             className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
                         />
                     </motion.div>
-
-                    {/* Decorative Glows */}
                     <div className="absolute inset-0 bg-gold-400/20 blur-3xl -z-10 rounded-full scale-75 group-hover:scale-110 transition-transform duration-700 opacity-50" />
-                    <div className="absolute -inset-1 bg-gradient-to-tr from-gold-500/20 via-transparent to-purple-500/20 rounded-[2.6rem] blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 </div>
 
-                <motion.h1
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-3xl font-heading font-bold mb-3 tracking-tight"
-                >
-                    <span className="text-white">Ashish</span> <span className="text-gradient-gold">Kumar</span>
-                </motion.h1>
+                <div className={`transition-all duration-500 ${isOpen ? 'items-center' : 'lg:items-center'}`}>
+                    <motion.h1
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-2xl lg:text-3xl font-heading font-bold mb-2 tracking-tight text-white"
+                    >
+                        Ashish <span className="text-gradient-gold">Kumar</span>
+                    </motion.h1>
 
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="px-4 py-2 bg-white/5 rounded-2xl border border-white/10 mb-10"
-                >
-                    <span className="text-[10px] font-bold text-gold-400/90 tracking-[0.1em] uppercase leading-relaxed">MCA Student | Tech Enthusiast</span>
-                </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="px-3 py-1.5 bg-white/5 rounded-xl border border-white/10 inline-block"
+                    >
+                        <span className="text-[10px] lg:text-[11px] font-bold text-gray-400 tracking-wider uppercase">MCA Student | Tech Enthusiast</span>
+                    </motion.div>
+                </div>
             </div>
 
             <AnimatePresence>

@@ -44,44 +44,43 @@ const MainContent = () => {
     };
 
     return (
-        <main className="glass-panel rounded-[2.5rem] p-8 lg:p-12 min-h-[600px] relative">
-            {/* Animated Top Decoration */}
+        <main className="glass-panel rounded-[3rem] p-8 lg:p-12 min-h-[700px] relative flex flex-col">
+            {/* Animated Decoration */}
             <div className="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 bg-gold-400/5 rounded-full blur-[100px] pointer-events-none" />
 
-            {/* Navigation */}
-            <div className="flex flex-col md:flex-row md:items-center justify-end gap-6 mb-12">
+            {/* Content Area - Grows to fill space */}
+            <div className="relative z-10 flex-1">
+                <AnimatePresence mode="wait">
+                    {renderContent()}
+                </AnimatePresence>
+            </div>
 
+            {/* Navigation - Bottom Positioned */}
+            <div className="flex justify-center md:justify-end mt-12 relative z-20">
                 <nav className="relative">
-                    <ul className="flex flex-wrap gap-2 bg-black/40 p-1.5 rounded-2xl backdrop-blur-xl border border-white/5">
+                    <ul className="flex flex-wrap gap-2 bg-black/40 p-2 rounded-2xl backdrop-blur-xl border border-white/10 shadow-2xl">
                         {tabs.map((tab) => (
                             <li key={tab.id} className="relative">
                                 <button
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`
-                    relative z-10 px-6 py-2 rounded-xl text-sm font-medium transition-colors duration-300
-                    ${activeTab === tab.id ? 'text-black' : 'text-gray-400 hover:text-white'}
-                    `}
+                                        relative z-10 px-6 py-2 rounded-xl text-sm font-semibold transition-all duration-300
+                                        ${activeTab === tab.id ? 'text-black' : 'text-gray-400 hover:text-white'}
+                                    `}
                                 >
                                     {tab.label}
                                 </button>
                                 {activeTab === tab.id && (
                                     <motion.div
                                         layoutId="activeTab"
-                                        className="absolute inset-0 bg-gold-400 rounded-xl shadow-[0_0_20px_rgba(250,204,21,0.3)]"
-                                        transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                        className="absolute inset-0 bg-gold-400 rounded-xl shadow-[0_0_25px_rgba(250,204,21,0.4)]"
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                     />
                                 )}
                             </li>
                         ))}
                     </ul>
                 </nav>
-            </div>
-
-            {/* Content Area */}
-            <div className="relative z-10">
-                <AnimatePresence>
-                    {renderContent()}
-                </AnimatePresence>
             </div>
         </main>
     );
