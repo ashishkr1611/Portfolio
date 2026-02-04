@@ -58,7 +58,7 @@ const Sidebar = () => {
                     transition={{ delay: 0.4 }}
                     className="px-4 py-2 bg-white/5 rounded-2xl border border-white/10 mb-10"
                 >
-                    <span className="text-[10px] font-bold text-gold-400/90 tracking-[0.1em] uppercase leading-relaxed">Computer Applications Student</span>
+                    <span className="text-[10px] font-bold text-gold-400/90 tracking-[0.1em] uppercase leading-relaxed">MCA Student | Tech Enthusiast</span>
                 </motion.div>
             </div>
 
@@ -74,8 +74,7 @@ const Sidebar = () => {
                             <h3 className="text-left text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] border-b border-white/5 pb-3">Contact Information</h3>
 
                             <ContactItem icon={Mail} text="work.ashish00@gmail.com" label="Email" delay={0.1} />
-                            <ContactItem icon={Phone} text="+91 9708824737" label="Phone" delay={0.2} />
-                            <ContactItem icon={MapPin} text="Noida, UP" label="Location" delay={0.3} />
+                            <ContactItem icon={MapPin} text="Noida, UP" label="Location" delay={0.2} />
                         </div>
 
                         <div className="flex justify-center gap-4 pt-8 border-t border-white/5">
