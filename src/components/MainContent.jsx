@@ -11,7 +11,7 @@ const MainContent = () => {
     const tabs = [
         { id: 'about', label: 'About' },
         { id: 'resume', label: 'Resume' },
-        { id: 'projects', label: 'Portfolio' },
+        { id: 'projects', label: 'Projects' },
         { id: 'contact', label: 'Contact' },
     ];
 
