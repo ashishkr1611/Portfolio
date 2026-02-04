@@ -36,7 +36,7 @@ function App() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container mx-auto px-4 py-8 lg:py-16 relative z-10 max-w-7xl xl:max-w-7xl"
+        className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 lg:py-16 relative z-10 max-w-7xl xl:max-w-7xl"
       >
         <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10">
 
@@ -45,8 +45,8 @@ function App() {
             <Sidebar />
           </div>
 
-          {/* Right Content */}
-          <div className="flex-1 min-w-0">
+          {/* Right Content - Scrollable area */}
+          <div className="flex-1 w-full lg:h-[calc(100vh-8rem)] lg:overflow-y-auto no-scrollbar pb-10">
             <MainContent />
           </div>
 

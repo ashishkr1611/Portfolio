@@ -24,12 +24,12 @@ const Sidebar = () => {
             {/* Profile Section */}
             <div className={`flex items-center w-full transition-all duration-500 ${isOpen ? 'flex-col lg:flex-col mb-10' : 'flex-row lg:flex-col lg:mb-10 text-left lg:text-center'}`}>
                 {/* Avatar Surround */}
-                <div className={`relative group transition-all duration-500 ${isOpen ? 'mb-8' : 'mr-6 lg:mr-0 lg:mb-8'}`}>
+                <div className={`relative group transition-all duration-500 ${isOpen ? 'mb-6' : 'mr-4 lg:mr-0 lg:mb-8'}`}>
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="w-24 h-24 lg:w-36 lg:h-36 rounded-[1.8rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative z-10 group-hover:rotate-1 transition-transform duration-500"
+                        className="w-20 h-20 lg:w-36 lg:h-36 rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative z-10 group-hover:rotate-1 transition-transform duration-500"
                     >
                         <img
                             src="/my-avatar.png"
@@ -37,15 +37,14 @@ const Sidebar = () => {
                             className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
                         />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gold-400/20 blur-3xl -z-10 rounded-full scale-75 group-hover:scale-110 transition-transform duration-700 opacity-50" />
                 </div>
 
-                <div className={`transition-all duration-500 ${isOpen ? 'items-center' : 'lg:items-center'}`}>
+                <div className={`transition-all duration-500 flex flex-col ${isOpen ? 'items-center' : 'lg:items-center'}`}>
                     <motion.h1
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
-                        className="text-2xl lg:text-3xl font-heading font-bold mb-2 tracking-tight text-white"
+                        className="text-xl lg:text-3xl font-heading font-bold mb-1.5 tracking-tight text-white"
                     >
                         Ashish <span className="text-gradient-gold">Kumar</span>
                     </motion.h1>
@@ -54,9 +53,9 @@ const Sidebar = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
-                        className="px-3 py-1.5 bg-white/5 rounded-xl border border-white/10 inline-block"
+                        className="px-2.5 py-1 bg-white/5 rounded-lg border border-white/10 inline-block"
                     >
-                        <span className="text-[10px] lg:text-[11px] font-bold text-gray-400 tracking-wider uppercase">MCA Student | Tech Enthusiast</span>
+                        <span className="text-[9px] lg:text-[11px] font-bold text-gray-400 tracking-[0.15em] uppercase">MCA Student | Tech Enthusiast</span>
                     </motion.div>
                 </div>
             </div>
