@@ -61,24 +61,22 @@ const Resume = () => {
     return (
         <div className="space-y-12 animate-fade-in">
             {/* Download Resume Header */}
-            <div className="mb-12">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
-                    <div className="flex flex-col gap-4">
-                        <h2 className="text-4xl font-heading font-bold text-white">Resume</h2>
-                        <div className="w-12 h-1 bg-gold-400 rounded-full" />
-                    </div>
-
-                    <motion.a
-                        href="/resume.pdf"
-                        download="Ashish_Kumar_Resume.pdf"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="flex items-center gap-3 px-8 py-4 bg-gold-400/5 border border-gold-400/20 rounded-2xl text-gold-400 font-semibold shadow-xl hover:bg-gold-400/10 hover:border-gold-400/40 transition-all duration-300 group"
-                    >
-                        <Download size={20} className="group-hover:translate-y-0.5 transition-transform" />
-                        Download CV
-                    </motion.a>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
+                <div className="flex items-center gap-4">
+                    <BookOpen className="text-gold-400" size={28} />
+                    <h2 className="text-3xl font-heading font-bold text-white">Resume</h2>
                 </div>
+
+                <motion.a
+                    href="/resume.pdf"
+                    download="Ashish_Kumar_Resume.pdf"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center gap-3 px-8 py-4 bg-gold-400/5 border border-gold-400/20 rounded-2xl text-gold-400 font-semibold shadow-xl hover:bg-gold-400/10 hover:border-gold-400/40 transition-all duration-300 group"
+                >
+                    <Download size={20} className="group-hover:translate-y-0.5 transition-transform" />
+                    Download Resume
+                </motion.a>
             </div>
 
             {/* Education Section */}

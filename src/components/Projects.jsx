@@ -22,8 +22,8 @@ const Projects = () => {
     return (
         <div className="space-y-12 animate-fade-in">
             <section>
-                <h2 className="text-4xl font-heading font-bold text-white mb-4">Project</h2>
-                <div className="w-12 h-1 bg-gold-400 rounded-full mb-10" />
+                <h2 className="text-3xl font-heading font-bold text-white mb-2">Project</h2>
+                <div className="w-12 h-1.5 bg-gold-400 rounded-full" />
             </section>
             <div className="grid grid-cols-1 gap-8">
                 {projects.map((project, index) => (

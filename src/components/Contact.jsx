@@ -7,8 +7,8 @@ const Contact = () => {
         <div className="space-y-12 animate-fade-in">
             {/* Header */}
             <section>
-                <h2 className="text-4xl font-heading font-bold text-white mb-4">Contact</h2>
-                <div className="w-12 h-1 bg-gold-400 rounded-full mb-10" />
+                <h2 className="text-3xl font-heading font-bold text-white mb-2">Contact</h2>
+                <div className="w-12 h-1.5 bg-gold-400 rounded-full" />
             </section>
 
             {/* Map Section */}

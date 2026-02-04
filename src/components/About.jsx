@@ -7,8 +7,10 @@ const About = () => {
         <div className="space-y-16">
             {/* About Me Section */}
             <section>
-                <h2 className="text-4xl font-heading font-bold text-white mb-4">About Me</h2>
-                <div className="w-12 h-1 bg-gold-400 rounded-full mb-10" />
+                <div className="flex items-center gap-4 mb-8">
+                    <div className="w-10 h-[1px] bg-gold-400 opacity-50" />
+                    <h2 className="text-sm font-semibold text-gold-400 uppercase tracking-[0.4em]">About Me</h2>
+                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -28,9 +30,9 @@ const About = () => {
 
             {/* Skills Section */}
             <section>
-                <div className="flex flex-col gap-2 mb-10">
-                    <h2 className="text-3xl font-heading font-bold text-white">Skills</h2>
-                    <div className="w-10 h-1 bg-gold-400/50 rounded-full" />
+                <div className="flex items-center gap-4 mb-10">
+                    <div className="w-10 h-[1px] bg-gold-400 opacity-50" />
+                    <h2 className="text-sm font-semibold text-gold-400 uppercase tracking-[0.4em]">Skills</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -6,7 +6,7 @@ import './index.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white relative font-sans selection:bg-gold-500/30 selection:text-gold-200">
+    <div className="min-h-screen bg-[#050505] text-white relative font-sans selection:bg-gold-500/30 selection:text-gold-200 pb-20 md:pb-0">
 
       {/* Dynamic Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -36,7 +36,7 @@ function App() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 lg:py-16 relative z-10 max-w-7xl xl:max-w-7xl"
+        className="container mx-auto px-4 py-8 lg:py-16 relative z-10 max-w-7xl xl:max-w-7xl"
       >
         <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10">
 
@@ -45,8 +45,8 @@ function App() {
             <Sidebar />
           </div>
 
-          {/* Right Content - Scrollable area */}
-          <div className="flex-1 w-full lg:h-[calc(100vh-8rem)] lg:overflow-y-auto no-scrollbar pb-10">
+          {/* Right Content */}
+          <div className="flex-1 min-w-0">
             <MainContent />
           </div>
 
@@ -54,7 +54,7 @@ function App() {
       </motion.div>
 
       {/* Global Bottom Decoration */}
-      <div className="fixed bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      <div className="fixed bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent hidden md:block"></div>
     </div>
   );
 }

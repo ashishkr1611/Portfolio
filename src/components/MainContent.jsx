@@ -11,7 +11,7 @@ const MainContent = () => {
     const tabs = [
         { id: 'about', label: 'About' },
         { id: 'resume', label: 'Resume' },
-        { id: 'projects', label: 'Project' },
+        { id: 'projects', label: 'Portfolio' },
         { id: 'contact', label: 'Contact' },
     ];
 
@@ -44,44 +44,73 @@ const MainContent = () => {
     };
 
     return (
-        <main className="glass-panel rounded-[3rem] p-8 lg:p-12 min-h-[700px] relative flex flex-col">
-            {/* Animated Decoration */}
-            <div className="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 bg-gold-400/5 rounded-full blur-[100px] pointer-events-none" />
+        <>
+            {/* Main Glass Panel */}
+            <main className="glass-panel rounded-[2.5rem] p-8 lg:p-12 min-h-[600px] relative">
+                {/* Animated Top Decoration */}
+                <div className="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 bg-gold-400/5 rounded-full blur-[100px] pointer-events-none" />
 
-            {/* Content Area - Grows to fill space */}
-            <div className="relative z-10 flex-1">
-                <AnimatePresence mode="wait">
-                    {renderContent()}
-                </AnimatePresence>
-            </div>
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex md:justify-end md:mb-12">
+                    <nav className="w-auto">
+                        <ul className="flex gap-2 bg-black/40 p-1.5 rounded-2xl backdrop-blur-xl border border-white/5">
+                            {tabs.map((tab) => (
+                                <li key={tab.id} className="relative">
+                                    <button
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={`
+                                            relative z-10 px-6 py-2 rounded-xl text-sm font-medium transition-colors duration-300
+                                            ${activeTab === tab.id ? 'text-black' : 'text-gray-400 hover:text-white'}
+                                        `}
+                                    >
+                                        {tab.label}
+                                    </button>
+                                    {activeTab === tab.id && (
+                                        <motion.div
+                                            layoutId="activeTabDesktop"
+                                            className="absolute inset-0 bg-gold-400 rounded-xl shadow-[0_0_20px_rgba(250,204,21,0.3)]"
+                                            transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                        />
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
 
-            {/* Navigation - Fixed Bottom at all times on mobile, Sticky on Desktop */}
-            <div className="
-                fixed bottom-0 left-0 right-0 z-50 px-4 pb-6 pt-10
-                lg:sticky lg:bottom-0 lg:mt-8 lg:pt-6 lg:pb-2 
-                bg-gradient-to-t from-black via-black/90 to-transparent 
-                backdrop-blur-xl lg:backdrop-blur-md 
-                -mx-0 lg:-mx-12 lg:px-12 lg:rounded-b-[3rem]
-            ">
-                <nav className="relative flex justify-center lg:justify-end max-w-7xl mx-auto">
-                    <ul className="flex items-center gap-6 sm:gap-8 px-6 py-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-2xl shadow-2xl lg:bg-transparent lg:border-none lg:backdrop-blur-none lg:shadow-none lg:p-0">
-                        {tabs.map((tab) => (
-                            <li key={tab.id}>
-                                <button
-                                    onClick={() => setActiveTab(tab.id)}
-                                    className={`
-                                        text-xs sm:text-sm font-bold tracking-widest uppercase transition-all duration-300
-                                        ${activeTab === tab.id ? 'text-gold-400 scale-110' : 'text-gray-500 hover:text-white'}
-                                    `}
-                                >
-                                    {tab.label}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
-        </main>
+                {/* Content Area */}
+                <div className="relative z-10">
+                    <AnimatePresence mode="wait">
+                        {renderContent()}
+                    </AnimatePresence>
+                </div>
+            </main>
+
+            {/* Mobile Bottom Navigation - Fixed at viewport level */}
+            <nav className="md:hidden fixed bottom-0 left-0 w-full z-[100]">
+                <ul className="
+                    flex justify-around 
+                    bg-[#1a1a1a]/95 p-4
+                    backdrop-blur-xl 
+                    border-t border-white/10
+                    rounded-t-3xl
+                ">
+                    {tabs.map((tab) => (
+                        <li key={tab.id} className="flex-1 text-center">
+                            <button
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`
+                                    w-full py-2 text-[12px] font-semibold transition-colors duration-300 tracking-wide
+                                    ${activeTab === tab.id ? 'text-gold-400' : 'text-gray-400'}
+                                `}
+                            >
+                                {tab.label}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </>
     );
 };
 
