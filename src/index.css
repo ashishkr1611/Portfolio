@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import '@fontsource/inter';
+@import '@fontsource/poppins';
+@import '@fontsource/libre-caslon-text/400.css';
+@import '@fontsource/libre-caslon-text/700.css';
+
+@theme {
+  --color-glass-100: rgba(255, 255, 255, 0.03);
+  --color-glass-200: rgba(255, 255, 255, 0.05);
+  --color-glass-300: rgba(255, 255, 255, 0.08);
+  --color-glass-400: rgba(255, 255, 255, 0.12);
+  --color-glass-dark: rgba(0, 0, 0, 0.7);
+
+  --color-gold-400: #FACC15;
+  --color-gold-500: #EAB308;
+  --color-gold-600: #CA8A04;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-content: "Libre Caslon Text", serif;
+
+  --animate-blob: blob 15s infinite;
+  --animate-aurora: aurora 20s linear infinite;
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+      transform: translate(60px, -80px) scale(1.2);
+    }
+
+    66% {
+      transform: translate(-40px, 40px) scale(0.8);
+    }
+
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@utility animation-delay-* {
+  animation-delay: calc(var(--value) * 1ms);
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white min-h-screen font-content antialiased overflow-x-hidden selection:bg-gold-500/30;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(30, 41, 59, 0.5) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(12, 12, 12, 1) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass-200 backdrop-blur-xl border border-white/10 relative overflow-hidden;
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.6),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    will-change: transform, opacity;
+  }
+
+  .glass-panel::before {
+    content: "";
+    @apply absolute inset-0 opacity-[0.03] pointer-events-none -z-10;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: brightness(100%) contrast(150%);
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-br from-white via-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
